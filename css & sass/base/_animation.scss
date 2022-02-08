@@ -1,0 +1,66 @@
+
+/*key frames are used for animations*/
+/*animate from left keyframe*/
+
+@keyframes moveinleft{
+    0%{
+        /*Translate X moves the element accross the X line -100 sets it out of view*/
+        /*for browser performance atleast have two animation properties*/
+transform: translateX(-100%);
+opacity: 0;
+    }
+    80%{
+transform: translateX(1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+        /*translate 0 sets document to defailt price*/
+
+    }
+}
+
+
+
+/*animate from right keyframe*/
+@keyframes movefromright{
+    0%{
+
+transform: translateX(30%);
+opacity: 0;
+    }
+    80%{
+transform: translateX(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+        
+
+    }
+}
+
+@keyframes forlogo{
+    0%{
+        height: 3rem;
+            }
+    50%{
+        height: 4.5rem;
+    }
+
+    100%{
+        height: 3rem;
+    }
+}
+
+
+@keyframes btnservices{
+    0%{
+transform: translateY(40rem);
+opacity: 0;
+    }
+    100%{
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}

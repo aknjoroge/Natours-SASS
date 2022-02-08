@@ -1,0 +1,200 @@
+.navigation{
+    &__checkbox{
+        display: none;
+
+    }
+    
+    //FUNCTIONALITY :used to open the navigation 
+    &__checkbox:checked ~ &__background{  //cannot be nested in checkbox since &for background will be checkbox which is wrong
+         transform: scale(80);   
+    }
+    &__checkbox:checked ~ &__nav{  //cannot be nested in checkbox since &for background will be checkbox which is wrong
+        width: 100%;
+        opacity: 1;
+   }
+   //end of FUNCTIONALITY
+
+    &__button{
+        background-color: $color_white;
+        width: 7rem;  //one rem higher than the background
+        height: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 200;
+        box-shadow: 0 1rem 4rem rgba($shadow_color, .2);
+        text-align: center;
+        cursor: pointer;
+
+        @include respond(tab-port){
+            width: 6rem;  //one rem higher than the background
+            height: 6rem;
+            top:6rem;
+            right:6rem;
+        }
+        @include respond(phone){
+            width: 6rem;  //one rem higher than the background
+            height: 6rem;
+            top:6rem;
+            right:6rem;
+        }
+
+    }
+    &__background{
+        //custom transition functions :specify how change occurs over time are replacement of easein-easeout etc
+        //get numbers form : easings.net 
+        transition: all .8s cubic-bezier(0.86,0,0.07,1);
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient($linear_gradient_color_three,$linear_gradient_color_four);
+        z-index: 100;
+
+        @include respond(tab-port){
+            width: 5rem;  //one rem higher than the background
+            height: 5rem;
+        }
+        @include respond(phone){
+            width: 5rem;  //one rem higher than the background
+            height: 5rem;
+        }
+       
+    }
+    &__nav{
+        
+        transition: all .8s cubic-bezier(0.86,0,0.07,1);
+        //the main element container with green background
+        height: 100vh;
+        width: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 150;
+        opacity: 0
+
+
+
+    }
+    &__list{
+       @include centre_horizontal; 
+       list-style: none;
+       text-align: center;  
+       width: 100%; 
+      
+     
+    }
+    &__item{
+        
+        margin: 1rem;
+       
+    }
+
+    
+    
+    &__link{
+
+        
+        &:link,
+        &:visited{
+            display: inline-block;
+            font-size: 3rem;
+        font-weight: 300;
+        color: $color_white;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        background-image: linear-gradient(120deg, 
+        transparent,
+        transparent 50%,
+        $color_white 50%,
+        );
+        //the large background size pushes the whitecolor ie 50% out of the view of the element ie pushes it to 
+        //the extree right
+        background-size: 250%;
+        transition:all .3s cubic-bezier(0.86,0,0.07,1);
+
+        }
+        &:hover,
+        &:active{
+            background-position: 100%;
+            color: $linear_gradient_color_three;
+            transform: translateX(1rem);
+
+        }
+        span{
+            margin-right: 1rem;
+            display: inline-block;
+        }
+        
+    }
+
+
+    &__icon{
+
+        position: relative;
+       
+        margin-top: 3.5rem;
+        /*We use the after and before elements to create two extra lines that we use on the menu*/
+        &,
+        &::before,
+        &::after{
+            width: 3rem;
+            height: 2px;
+            background-color: #333;
+            display: inline-block;
+        }
+        &::after,
+        &::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .3;
+            
+        }
+        //Separating the three line
+        &::before{
+            top:-.8rem;
+
+        }
+        &::after{
+            top:.8rem;   
+        }
+
+        @include respond(tab-port){
+            margin-top: 3.1rem;
+        }
+        @include respond(phone){
+            margin-top: 3.1rem;
+        }
+
+    }
+
+    &__button:hover &__icon::before{ //selecting icon as a child of button
+        top:-1rem;
+    }
+    &__button:hover &__icon::after{ //selecting icon as a child of button
+        top:1rem;
+    }
+
+    &__checkbox:checked ~ &__button &__icon{ //selecting icon whose parent is button a sibling to checkbox
+        background-color: transparent;
+
+        //we cannot change the dimensions of the icon since they will affect the after and before elements
+    }
+    &__checkbox:checked ~ &__button &__icon::before{ //rotating after element
+        transform: rotate(135deg);
+        top: 0; //makes the X be at the centre
+
+    }
+    &__checkbox:checked ~ &__button &__icon::after{ //rotating below element
+        transform: rotate(-135deg); 
+        top: 0;
+    }
+
+
+
+}

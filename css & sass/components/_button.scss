@@ -1,0 +1,153 @@
+
+/*the :hover or :link is called pseudo clases they define an element state */
+.btn:link,
+.btn:visited{
+
+    padding: 1.5rem 2rem;
+    display: inline-block;
+   text-decoration: none;
+   /*padding can be one value for all sides or two values:one for top and bottom the next for right and left*/
+   /*shadow syntax is xpx,ypx,blur,color */
+border-radius: 20rem;
+transition: all .2s;
+  font-weight: 700;
+  font-size: 1.4rem;
+position: relative;
+animation: 3s btnservices ease-out .30s;
+/*animation fill mode applies style of element to start afer animation thus preventing element showing up before 
+animation starts
+*/
+animation-fill-mode: backwards;
+
+
+}
+
+
+
+.btn{
+   
+    &:hover{
+
+        /*3 is negative since css runs top to bottom thus using -3 raises it the y axis */
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgb($shadow_color,.2);
+        &::after{
+            /*increases size of element by multiplying its size by the number*/
+            transform: scaleX(1.4) scaleY(1.4);
+            opacity: 0;
+        }
+    }
+    &:active{
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 2rem  rgba($shadow_color, 0.3);
+    }
+    &--white{
+        background-color: $color_white;
+        color:$color_grey;
+        &::after{
+        background-color: $color_white;
+        }
+    }
+    &--green{
+        background-color: $color_green;
+        color:$color_white;
+        &::after{
+        background-color: $color_green;
+        }
+    }
+    
+    &--tours{
+       margin-top: $tour_section_green_btn_top_margin;
+
+       @include respond(tab-port){
+        margin-top:  -70rem !important;
+      //  position: relative;
+    }
+  
+    @include respond(phone){
+        margin-top:  30rem;
+   
+  }
+       
+
+    }
+
+    /*after is an example of a pseudo element*/
+    &::after{
+        content: "";
+        display: block;
+        border-radius: 10rem;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /*z index is used to place the after pseudo element behind the main button*/
+        z-index: -1;
+        transition: all .4s;
+        /*.75 is animation delay*/
+        animation: 4s btnservices ease-out .35s;
+    }
+
+}
+//anew class to handle the next button
+    .btn--next{
+        //below is used to style a <button element that uses our classes>
+    //note: buttons do not have visited,links classes
+    border: none;
+    cursor: pointer;
+    background-color: $color_green;
+    color:$color_white;
+
+    transition: all .2s;
+  font-weight: 700;
+  font-size: 2.4rem;
+  padding: 2rem;
+ 
+  border-radius: .5rem;
+  margin-top: 2rem;
+
+  
+    &:hover{
+    //remover border when clicking the button
+    outline: none;
+    box-shadow: 0 1rem 3rem rgba($shadow_color, 0.35);
+            transform: translateY(-2px);
+    }
+    &:active{
+        //remover border when clicking the button
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba($shadow_color, 0.15);
+                transform: translateY(0);
+        }
+    }
+
+.btn-text{
+    &:link,
+    &:visited{
+        color: $linear_gradient_color_three;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $linear_gradient_color_three;
+        padding: 3px;
+        font-size: $default-font-size;
+        transition: all .2s;
+        padding: .7rem;
+        border-radius: .5rem;
+
+
+    }
+    &:hover{
+        background-color: $linear_gradient_color_three;
+        color: $color_white;
+        box-shadow: 0 1rem 2rem rgba($shadow_color, 0.15);
+        transform: translateY(-2px);
+
+
+    }
+    &:active{
+
+ box-shadow: 0 1rem 1rem rgba($shadow_color, 0.15);
+        transform: translateY(0);
+    }
+}

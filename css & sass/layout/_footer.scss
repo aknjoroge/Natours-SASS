@@ -1,0 +1,88 @@
+.footer{
+   background-color: #333;
+    padding: 10rem 0;
+    font-size: 1.4rem;
+
+    @include respond(tab-port){
+     
+    }
+    @include respond(phone){
+      
+    }
+
+    
+
+    &__logo-box{
+        //centering the image
+        //image is inline element all inline elements are centered as text
+        text-align: center;
+        margin-bottom: 8rem;
+
+    }
+    &__logo{
+        width: 11rem;
+        height: auto;
+       
+        @include respond(tab-port){
+            width: 6rem !important;
+            height: auto;
+        }
+        @include respond(phone){
+            width: 5rem;
+            height: auto;
+        }
+
+    }
+    &__navigation{
+        border-top: 1px solid #eee;
+        padding-top: 2rem;
+        display: inline-block;//fixes line being over items since inline blocks only occupy their width,its content
+    
+    }
+
+    
+    &__list{
+list-style: none;
+    }
+    &__item{
+        display: inline-block;
+        &:not(:last-child){
+            margin-right: 1.5rem;
+        }
+
+        @include respond(tab-port){
+            margin: 4px;
+        }
+        @include respond(phone){
+            margin: 4px;
+        }
+    }
+    &__link{
+        &:link,
+        &:visited{
+            padding: 1rem;
+            color: $color_grey;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 3px;
+            text-transform: uppercase;
+            transition: all .3s;
+            background-color: #333;
+        }
+        &:hover,
+        &:active{
+            color: $linear_gradient_color_three;
+            box-shadow: 0 1rem 4rem rgba($shadow_color, .4);
+            transform: rotate(5deg) scale(1.3);
+        }
+    }
+    &__copyright{
+        color: $color_grey;
+        border-top: 1px solid #eee;
+        width: 80%;
+        float: right;
+        padding-top: 2rem;
+
+    }
+}
+

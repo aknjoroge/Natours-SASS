@@ -1,0 +1,115 @@
+.row{
+    /*max width allows rescalling */
+    max-width: $grid_width;
+
+    @include respond(tab-port){
+        max-height: 95%;
+        
+     }
+     @include respond(phone){
+        max-height: 75%;
+        
+     }
+
+
+    
+/*centering block elements where top and bottom are 0 then left to be the same as right (auto)*/ 
+    margin: 0 auto;
+
+    &:not(:last-child){ // selects everything apart from the last child
+        margin-bottom: $margin_vertical;
+
+        //respondive to reduce margin 
+        @include respond(tab-port){
+           max-width: 75%;
+            margin-bottom: $margin_vertical-small;
+        }
+    }
+
+    @include clearfix;
+    
+ 
+    //attribute selector can ex select all <a> where their attribute target="blank"
+    // [] is used for an attribute selector, ^ is used to declare start where class
+    // starts with col-1 end with col would use $ instead of ^
+      [class^="col-"]{  
+    //background:linear-gradient( to right bottom ,rgba(255, 0, 0, 0.753),blue);
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+    height: 4rem;
+     float:left;
+     &:not(:last-child){
+        margin-right: $margin_horizontal;
+         //responsive to reduce right margin
+        @include respond(tab-port){
+            margin-right: 0;
+            margin-bottom:  $margin_vertical-small;
+        }
+
+      }
+
+     
+
+      }  
+
+    .col-1-of-2{
+    //calc function allows mixing of units its a function of css NOT sass
+    //since calc is a css function you wrap sass variables in #{ } so as the math to work
+    // the space in the subtraction is usefull ie the 100 - ...
+    width: calc((100% - #{$margin_horizontal}) / 2 );
+
+     //responsive to increase grid width
+     @include  col-1-of-2-reponsive;
+    
+   
+    }
+
+
+    .col-1-of-3{
+        //multiplying by 2* margin
+        width: calc((100% - 2* #{$margin_horizontal}) / 3 );
+        @include  col-1-of-3-reponsive;
+
+       
+    }
+
+    .col-2-of-3{
+        width: calc((100% - 2* #{$margin_horizontal}) / 3 );
+        &:last-child{
+            width: calc( 2*((100% - 2* #{$margin_horizontal}) / 3 ) + #{$margin_horizontal});
+        }
+      
+
+    }
+
+
+    .col-1-of-4{
+        //has 3 margins
+        width: calc((100% - 3* #{$margin_horizontal}) / 4 );
+
+       @include  col-1-of-4-reponsive;
+
+    }
+    .col-2-of-4{
+        width: calc((100% - 3* #{$margin_horizontal}) / 4 );
+        &:last-child{
+            width: calc( 2*((100% - 3* #{$margin_horizontal}) / 4 ) + #{$margin_horizontal} );
+        }
+    }
+
+}
+
+.col-1-of-2-footer-extention{
+    @include respond(tab-port){
+      
+            margin-bottom: -100rem;
+        
+    }
+    @include respond(phone){
+       
+        
+         margin-bottom: -100rem;
+        
+    }
+}

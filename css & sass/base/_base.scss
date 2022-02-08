@@ -1,0 +1,66 @@
+
+/* (*) universal selector to format the page*/
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    /*makes element inherit box-size property from body*/
+   box-sizing: inherit;
+
+}
+/*html is used as root element*/
+html{
+    /*The root font size is used in the calculation of rem measurements*/
+    /*100% is used so as to scale site to user defined font size setting   will disable user from 
+    changing the font as required*/
+    /*the default font size is 16 thus if we need 10px we devide 10/16*/
+    font-size: $font_size;
+
+    //respond is a mixin for responsiveness using media queries 
+
+    // @include respond (phone){
+    //     font-size: 50%;
+    // }
+    //We remove phone since its the same as tablet-portrait which will make both apply
+    
+    
+    /*the order of writting the queries is important since we need to apply the last query where two queries become
+    confilcting 
+    the Larger ones Come First
+    BUT for mobile using min-width the order is oposite small to big
+    */
+
+    @include respond (big-desktop){
+        font-size: 67.5%; //10.8px  // 1rem =10.8px ,10.8/16 =67.5%
+    }
+
+    @include respond (tab-land){ //width <900 ?
+        font-size: 53.1%; //8.5px  //here we want 9px as font thus 1 rem =8.5px , 8.5/16 =56%
+       
+    }
+
+    @include respond (tab-port){ //width <600 ?
+        font-size: 50%; //8px   //here we want 8px as font thus 1 rem =8px , 8/16 =50%
+    }
+
+  
+
+   
+
+}
+body{
+     box-sizing: border-box; /* border-box:Makes borders and paddings not to be add to total with and total height of 
+    the element*/
+    padding: $global_padding;
+
+    @include respond (tab-port){ 
+            padding: 0;
+    }
+} 
+
+//used to style text selection
+::selection{
+    background-color: $linear_gradient_color_three;
+    color: $color_white;
+}

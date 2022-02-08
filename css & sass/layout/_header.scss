@@ -1,0 +1,58 @@
+.header{
+    height: 95vh; /*sets the height 95% */
+    background-position: top;/* the top of the background sticks to the top of the page and doesnt crop as the bottom part does*/
+    background-size: cover; /* sets image to cover the total view pork*/
+  /*Liner gradient is also added in background img so is image already exist separate with a(,) 
+  between url and linear as shown  - to right specifies the direction of the gradient ex to bottom to left, to right
+  bottom makes a diagonal shape direction */
+
+  /*color rgbh (111 =A , 55% =B , 64% =C , 0.801 = THE OPACITY),*/
+  background-attachment: fixed;
+    background-image: linear-gradient(to right bottom,rgba($linear_gradient_color_one, 0.769),
+    rgba($linear_gradient_color_two, 0.767)),
+    url(../img/wallomp.png);
+    
+    /* clip path is used to crop the image to a desired shape using polygon function the position are set using 
+    coordinates (x ,y ) . the coordinates start from top left and move clockwise*/
+   
+    /* clip-path: polygon(50% 0,100% 100%,0 100% ); - triangle challenge*/
+    --webkit--clip-path: polygon(0 0,100% 0,100% 60vh,0 100% ); //webkit brings support to all browsers
+    clip-path: polygon(0 0,100% 0,100% 60vh,0 100% );
+    position: relative;
+
+
+
+    &__logo-box{
+        position: absolute;  /* the left and top distances are measured  RELATIVE to the parent element in this case
+        the header and thus the header should be set to position relative */
+        top: 4rem;
+        left: 4rem;
+    }
+
+    
+    &__logo{
+        height: 3rem; /*setting height only lets browser auto adjust the width*/
+
+        &:hover{
+            /*can call animation as general then describe its properties as shown below time,animation name and easy value in any order*/
+             animation:  forlogo 3s;
+          }
+    }
+
+
+
+    &__text-box{
+        text-transform: uppercase;
+        color: $color_white;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        text-align: center;
+        /*top and left relative to the parent element*/
+        transform: translate(-50%,-50%); /*(x,y) relative of the element itself this will centre it*/
+        backface-visibility: hidden;/* backspacevisibility is a fix for When annimations start to shake on end
+        its set on parent container*/
+    
+    }
+
+}

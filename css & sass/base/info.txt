@@ -1,0 +1,2 @@
+Base folder is where basic project definitions are put.
+base file contains resets,style for html and body element selectors;

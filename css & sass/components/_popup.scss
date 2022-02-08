@@ -1,0 +1,106 @@
+.popup{
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: rgba(black,.9);
+    z-index: 200;
+
+    //using Gracefull degregation to check if a browser supoorts a property then applying it if it does
+    @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)){
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(black,.2);
+    } 
+    // backdrop-filter is used to filter elements behind it ex blur,invert ,brightness
+
+    //hidding the element
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+
+    &__content{
+        display: table; //table is used to controll the table cells in its class
+        width: 75%;
+        height: 20rem;
+        background-color: #fff;
+        @include centre_horizontal;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 2rem 4rem rgba($shadow_color,.4);
+        opacity: 0;
+        //we rewrite the translate property since the one from center mixin is overriden 
+        transform: translate(-50%,-50%) scale(.25);
+        transition: all .5s;
+        
+    }
+
+    //open state
+    &:target{
+        //will happen when the ancor element to this element is clicked
+        opacity: 1;
+        visibility: visible;
+    }
+    &:target &__content{
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1);
+
+    }
+    //end of state
+
+  
+    &__left{
+        width: 33.3333%;
+        //instead of using floats to keep the two elements side by side we use table property
+        display: table-cell; //used to centre content
+
+    }
+    &__right{
+        padding: 3rem 5rem;
+        width: 66.66666%;
+        display: table-cell;
+        vertical-align: middle;//centers content in the table
+    }
+    &__img{
+        display: block;
+        width: 100%;
+
+    }
+    &__text{
+        font-size: 1.4rem;
+        margin-top: 1rem;
+        margin-bottom: 4rem;
+        //column layout
+        column-count: 2;//creates two columns
+        column-gap: 4rem; //default is 1em. Rem 1em = element fontsize
+        column-rule: 1px solid #eee;//creates border between the columns
+
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem; //default is 1em. Rem 1em = element fontsize
+        -moz-column-rule: 1px solid #eee;//creates border between the columns
+
+        hyphens:auto ; //initial is none.Creates hyphens when text overflows the language <html lang="en"> must be set
+
+        //to support all browsers
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+    }
+    &__close{
+        &:link,
+        &:visited{
+            color: #777;
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+
+        }
+        &:hover{
+            color: $linear_gradient_color_three;
+        }
+}
+}

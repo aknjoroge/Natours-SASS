@@ -1,0 +1,1 @@
+contains each piece of global layout ex global footer,header

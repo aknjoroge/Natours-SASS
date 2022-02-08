@@ -1,0 +1,113 @@
+
+body{
+    /*fonts are inherited - all childs of the body get the font*/
+    font-family: "lato",sans-serif; /*lato is declared in html from the google fonts Lato:100,300,400,700,900*/
+    /*100,300,400,700,900 are the font weights*/
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7; /* is 1.7 times bigger than the normal size*/
+    color:$body_color;
+   
+     box-sizing: border-box; /* border-box:Makes borders and paddings not to be add to total with and total height of 
+    the element*/
+
+} 
+
+
+.heading{
+    &--top{
+        display: block;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 2.5rem;
+    
+    /*To add  keyframe to elememt just add 1. keyframe name and animation-duration*/
+    /*Other animation properties ex Animation iteration count that defines number of times keyframe will run (4).
+    animation delay -delays :(3s) an animation in seconds, 
+    */
+    animation-name: moveinleft ;
+    animation-duration: 5s;
+
+    @include respond(phone){
+        font-size: 3.1rem;
+        letter-spacing: 1.5rem;
+    }
+    
+    }
+    
+    &--bottom{
+        display: block;
+        font-weight:400 ;
+        letter-spacing: 1.64rem;
+        font-size: 2rem;
+        animation-name: movefromright;
+        animation-duration: 5s;
+    margin-bottom:6rem;
+        /*can combine the animation declarations to be one as
+         
+        animation:movefromright , 1s ,ease-in;
+    
+        */
+        @include respond(phone){
+            font-size: 1.4rem;
+            letter-spacing: 1rem;
+        }
+    }}
+
+    .heading-secondary{
+        margin-top: 4rem;
+        font-size: 3.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        background-image: linear-gradient(to right bottom,$linear_gradient_color_three,$linear_gradient_color_four);
+        //inline does not support transitions ie transform properties
+        display: inline-block;
+        //webkit sets the background to the text
+       -webkit-background-clip: text;
+        letter-spacing: .2rem;
+       color: transparent;
+       transition: all .3s;
+      
+
+       &:hover{
+        
+    transform: skewY(2deg) skewX(15deg);
+    scale: (1.1);
+    text-shadow: .5rem 1rem 2rem rgba($shadow_color,.3);
+       }
+
+       @include respond(tab-port){
+        font-size: 2.7rem;
+       }
+       @include respond(phone){
+        font-size: 2.0rem;
+
+       }
+    }
+
+    .heading-tertiary{
+        font-size: $default-font-size;
+        color: $color_grey;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .paragraph{
+        font-size: $default-font-size;
+        color: $color_grey;
+        &:not(:last-child){
+            margin-bottom: 3rem;
+        }
+    }
+
+    .about-heading{
+        @include respond(tab-port){
+           margin-top: 2rem;
+           margin-bottom: 2rem;
+               
+               }
+         
+         @include respond(phone){
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+           }
+    }

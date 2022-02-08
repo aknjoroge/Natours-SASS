@@ -1,0 +1,121 @@
+.form{
+    &__group:not(:last-child){
+        margin-bottom: 2rem;
+    }
+    &__input{
+        transition: all .3s;
+        font-family: inherit;
+        color: inherit;
+        size: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color_white,.5);
+        border: none;
+        width: 90%;
+        display: block;
+        border-bottom: 3px solid transparent; // this border prevents below elements lowering when the above is clicked
+        &:focus{
+            outline: none;//outline is the border created when writting to input field
+            box-shadow: 0 1.5rem 2rem rgba($shadow_color, .3);
+            border-bottom: 3px solid $linear_gradient_color_three;        //is used to show user what element is in focus
+        }
+        //testing if user has correct input filled
+        &:focus:invalid{
+            border-bottom: 3px solid orangered;
+        }
+
+        //the pseudo class is used to style the placeholder text
+    &::-webkit-input-placeholder{
+        color: #999;
+    }
+
+    @include respond(phone){
+        width: 100%;
+    }
+    @include respond(tab-port){
+        width: 100%;
+    }
+
+    }
+
+
+    &__lable{
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 3rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    /*The input and the label are siblings none is a parent none is a class and so we use the sibling selector (first sibling) '+'
+    to select the label 
+    the pseudo element placeholder is used to set effect when a char is typed into the input field
+    .the sibling selected using + MUST be below the initial one in the html file
+    */
+    //if place holder is shown do:
+    &__input:placeholder-shown + &__label{
+        //hidding the label
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);//placing input higher
+
+
+    }
+    &__radio-group{
+        width: 45%;
+        display: inline-block;
+        @include respond(phone){
+            width: 100%; 
+            margin: 1rem;
+        }
+        @include respond(tab-port){
+            width: 100%; 
+            margin: 1rem;
+        }
+        
+    }
+    &__radio-label{
+        font-size: 1.6rem;
+        cursor: pointer;
+        position: relative;
+        padding-left: 4rem;
+
+    }
+    &__radio-input{
+        display: none;
+    }
+    &__radio-button{
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $linear_gradient_color_three;
+        display: inline-block;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: -1;
+
+        &::after{
+            //the after is used to create the selected dot
+           content: "";
+           display: block;
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+           @include centre_horizontal;
+            background-color: $linear_gradient_color_three;
+            opacity: 0;
+            transition: all .3s;
+        }
+    }
+    //pseudo class to check the selected radiobox
+    /*The radio-button is a child of radio-label a sibling of radio-input thus
+     we first access the sibling then the radio button as the child*/
+    //here we use ~ cause its used for general siblings while + is for direct siblings 
+    //after selecting the input we then style the after element 
+    &__radio-input:checked ~ &__radio-label &__radio-button::after{
+        opacity: 1;
+
+    }
+
+}

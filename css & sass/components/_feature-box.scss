@@ -1,0 +1,33 @@
+.feature-box{
+    background-color: rgba($color_white,8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: .3rem;
+    box-shadow: 0 1.5rem 4rem rgba($shadow_color,.15);
+    transition: all .4s;
+
+    &__icon{
+        //increasing size of icon
+        font-size: 5rem;
+        margin-bottom:1rem;
+        padding: 6px;
+
+        background-image: linear-gradient(to right bottom,$linear_gradient_color_three,$linear_gradient_color_four);
+        //inline does not support transitions ie transform properties
+        
+        //webkit sets the background to the text
+       -webkit-background-clip: text;
+       color: transparent;
+
+
+    }
+    &__text{
+
+    }
+
+    &:hover{
+        transform: translateY(-1.5rem) scale(1.08);
+    }
+    
+}

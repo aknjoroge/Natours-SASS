@@ -1,0 +1,108 @@
+.section-about{
+    background-color: $section_about_bg_color;
+    height: 120vh;
+    margin-bottom: 300px;
+    padding: $section_padding  0;
+    //vh for header was 95 - 60 for the shape 
+    //thus for this section is -35vh
+    margin-top: -35vh;
+
+    @include respond(tab-port){
+        margin-top: -35vh;
+        padding: $section_padding  0;
+           
+           }
+     
+     @include respond(phone){
+        margin-top: -35vh;
+        padding: $section_padding  0;
+       }
+
+    @include respond(big-desktop){
+        padding: $section_padding  2rem;
+        margin-left: 2rem 2rem;
+           }
+
+}
+.img__composition{
+    @include respond(tab-port){
+       margin-top: 35rem;
+          
+          }
+    
+    @include respond(phone){
+      margin-top: 41rem;
+      }
+}
+
+.feature-section{
+    padding: 20rem 0;
+    background-image: linear-gradient(to right bottom,rgba($linear_gradient_color_one, 0.769),
+    rgba($linear_gradient_color_two, 0.767)),
+    url(../img/wallomp.png);
+    background-size: cover; 
+    background-attachment: fixed;
+
+    //an alternative of clipart to make the background image to shape
+    transform: skewY(-7deg);
+    margin-top: -10rem;
+
+    /*since we skew the enter section by -7 here we reskew the boxes to align them horizontally by selecting them
+    using the direct child selector
+    */
+    // > is the direct child selector
+    & > *{
+        transform: skewY(7deg);
+    }
+
+
+}
+
+.section-tours{
+    background-color: $section_about_bg_color;
+    padding: 2rem;
+    height: 140vh;
+    margin-top: -1rem;
+
+    @include respond(tab-port){
+        height: 250vh;
+       
+       }
+ 
+ @include respond(phone){
+  
+    height: 250vh;
+   }
+
+}
+
+.section-stories{
+    position: relative;
+    padding: 15rem 0;
+}
+
+.section-book{
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom  ,$linear_gradient_color_three,
+    $linear_gradient_color_four);
+
+
+}
+.book{
+    
+    background-image:linear-gradient(105deg,//the degree is the direction of gradient
+    rgba($color_white,.9) 0%, /*at the start*/
+    rgba($color_white,.9) 50%,
+    transparent 50%),
+     url(../img/nat-10.jpg); //one level up to exit css
+    background-size: cover;//can also write 100% in place of cover ,so as to create a 4 x 4 grid tyr 25%
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($shadow_color,.3);
+    height: 50rem;
+
+    &__form{
+        width: 50%;
+        padding: 6rem;
+
+    }
+}

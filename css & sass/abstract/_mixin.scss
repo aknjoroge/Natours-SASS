@@ -1,0 +1,174 @@
+@mixin clearfix {
+    /* used to fix the lack of height of an element after its child classes are floated,works by adding 
+    an after element to the collapsed element by clearing both floats (left and right) clear:both*/
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin centre_horizontal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+//    RESPONSIVE SECTION
+/*order of design
+ORDER: base > typograph > general_layout > grid > page layout > components
+*/
+//mixin for media queries for responsiveness
+/*
+breakpoints we use
+-phone          0-600px
+-tab-port        600-900px
+-tab-land       900-1200px
+-big-desktop        1200-1800px
+*/
+
+//we use em as our unit since media queries support em better than rem
+//1em = 16px
+//em also helps with scalling as user changes font size
+@mixin respond($breakpoint) {
+
+    @if $breakpoint == phone{
+        @media only screen and (max-width :37.5em){ //0-600px
+            @content;
+        }
+    }
+    @if $breakpoint == tab-port{
+        /* only screen and is used to set scalling of website to web only and not when someone is printing the web-page
+        the media queries only apply to screens
+        */
+        @media only screen and (max-width :56.25em){ //600-900px
+            @content;
+        }
+    }
+    @if $breakpoint == tab-land{
+        @media only screen and (max-width :75em){   //900-1200px
+            @content;
+        }
+    }
+    @if $breakpoint == big-desktop{
+        @media only screen and (max-width :112.5em){  //1200-1800px
+            @content;
+        }
+    }
+    
+}
+
+//responsive col-1-of-4 media query
+
+@mixin  col-1-of-4-reponsive {
+
+      //responsive to increase grid width
+      @include respond(tab-port){
+        width: 60% !important;
+        height: 14rem;   
+         @include grid-4-col-center;
+        text-align: center !important;
+       
+        
+        }
+
+@include respond(phone){
+    width: 60% !important;
+    @include grid-4-col-center;
+    height: 16rem;
+    text-align: center !important;
+    }
+    
+}
+
+
+@mixin grid-4-col-center {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+//col-1-of-2
+@mixin  col-1-of-2-reponsive {
+
+    //responsive to increase grid width
+    @include respond(tab-port){
+       width: 60% !important;
+      height: 14rem;   
+       @include grid-4-col-center;
+      text-align: center !important;
+     
+      
+      }
+
+@include respond(phone){
+   width: 60% !important;
+  @include grid-4-col-center;
+  height: 16rem;
+  text-align: center !important;
+ 
+
+  }
+  
+} 
+
+
+
+//col-1-of-3
+@mixin  col-1-of-3-reponsive {
+
+    //responsive to increase grid width
+
+    @include respond(tab-port){
+        
+    width: calc((100% - #{$margin_horizontal}) / 2 );
+        width: 40rem !important;
+       display: block;
+      // margin: 1rem;
+      @include grid-4-col-center;
+    height: 49rem;
+    text-align: center !important;  
+
+      }
+
+@include respond(phone){
+
+//width: calc((100% - #{$margin_horizontal}) / 2 );
+       width: 40rem !important;
+       display: block;
+       //margin: .5rem;
+      //@include grid-4-col-center;
+    height: 49rem;
+    text-align: center !important;  
+ 
+  }
+ 
+ 
+}
+
+@mixin grid-3-col-center {
+    position: relative;
+    top: 0;
+    left:25%;
+   // transform: translate(-50%,-50%);
+}
+
+.col-1-of-3-last-child{
+
+  @include respond(tab-port){
+      //width: 45rem !important;
+      //@include grid-3-col-center;
+      //transform: translate(3rem,0);
+  }
+
+  @include respond(phone){
+   
+    // width: 35rem !important;
+    // @include grid-3-col-center;
+   // centers the element at the centre
+ 
+}
+
+} 

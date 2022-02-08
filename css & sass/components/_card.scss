@@ -1,0 +1,180 @@
+.card{
+    //perspective is used to add naimation to card flip
+    //perspective is like the 3d animation
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+
+    height: 52rem;  //the second height is used to prevent collapsing of the parent height
+
+    @include respond(tab-port){
+       
+        // height: 52rem !important;
+        
+        }
+
+@include respond(phone){
+    height: 32rem  !important;
+    }
+
+
+
+    &__slide{
+
+        
+    @include respond(tab-port){
+        height: 52rem !important;
+        
+        }
+
+        background-color: orangered;
+        height: 52rem;  
+        transition: all 1s ease;
+        //the two classes front and back create two different cards and so reuniting them we use possitioning
+        position: absolute;
+        top: 0;
+        left: 0; 
+        width: 100%;
+        //backface hides the back part of an element
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden; //hides the square image from view and retains the border radius
+        box-shadow: 0 1.5rem 4rem rgba($shadow_color,.15);
+    
+
+        &--front{
+            background-color: $color_white;
+        }
+        &--back{
+            /*setting the back side of the cart to an already initial rotate of 180deg so as not to be visible*/
+           
+            transform:rotateY(180deg);
+            &-1{
+                background-image: linear-gradient(to right bottom ,$linear_gradient_color_five ,$linear_gradient_color_six ); 
+
+            }
+            &-2{
+                background-image: linear-gradient(to right bottom ,$linear_gradient_color_three ,$linear_gradient_color_four ); 
+
+            }
+            &-3{
+                background-image: linear-gradient(to right bottom ,$linear_gradient_color_seven ,$linear_gradient_color_eight ); 
+
+            }
+            
+        }
+
+    }
+
+
+ &:hover &__slide--front {
+     transform:rotateY(-180deg);
+ }
+  
+ &:hover &__slide--back {
+    transform:rotateY(0);
+}
+ 
+&__picture{
+    background-size: cover;
+    height: 23rem;
+     //background blend helps in image blending
+    background-blend-mode: screen;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    &--1{
+        //we move the filepath one level up since this code will be read from main.css that is one folder up.
+        background-image: linear-gradient(to right bottom ,$linear_gradient_color_five ,$linear_gradient_color_six ),url(../img/nat-5.jpg);
+    //shape background image
+    -webkit--clip-path: polygon(0 0, 0 100% , 50% 100% ,100% 0 ); //this webkit enables support for all browsers
+    clip-path: polygon(0 0, 100% 0 , 100% 100% ,0 50% );
+    }
+    
+    &--2{
+        //we move the filepath one level up since this code will be read from main.css that is one folder up.
+        background-image: linear-gradient(to right bottom ,$linear_gradient_color_three ,$linear_gradient_color_four ),url(../img/nat-6.jpg);
+    //shape background image
+    -webkit--clip-path: polygon(0 0, 0 100% , 50% 100% ,100% 0 ); //this webkit enables support for all browsers
+    clip-path: polygon(0 0, 100% 0 , 100% 50% ,0 80% );
+    }
+
+    &--3{
+        //we move the filepath one level up since this code will be read from main.css that is one folder up.
+        background-image: linear-gradient(to right bottom ,$linear_gradient_color_seven ,$linear_gradient_color_eight ),url(../img/nat-7.jpg);
+    //shape background image
+    -webkit--clip-path: polygon(0 0, 0 100% , 50% 100% ,100% 0 ); //this webkit enables support for all browsers
+    clip-path: polygon(0 0, 100% 0 , 100% 50% ,0 80% );
+    }
+}
+
+&__heading{
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color_white;
+    //to place text on top of image
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 65%;
+}
+
+&__heading-span{
+    padding: 1rem 1.5rem;
+    --webkit-box-decoration-break: clone; //treats two lines of sentences as different blocks rather than one line
+    &--1{
+        background-image: linear-gradient(to right bottom ,rgba($linear_gradient_color_five,.85), 
+        rgba($linear_gradient_color_six,.85));
+    }
+    &--2{
+        background-image: linear-gradient(to right bottom ,rgba($linear_gradient_color_three,.85), 
+        rgba($linear_gradient_color_four,.85));
+    }
+    &--3{
+        background-image: linear-gradient(to right bottom ,rgba($linear_gradient_color_seven,.85), 
+        rgba($linear_gradient_color_eight,.85));
+    }
+}
+&__details{
+    padding: 3rem;
+    ul{
+        margin: 0 auto;
+        list-style: none;
+        width: 80%;
+        li{
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 1rem;
+
+            &:not(:last-child){
+                border-bottom: 1px solid $color_grey;
+            }
+        }
+    }
+}
+ 
+    &__cta{
+       @include centre_horizontal;
+
+        text-align: center;
+        width: 90%;
+    }
+    &__price-box{
+    text-align: center;
+    color: $color_white; 
+    margin-bottom: 8rem;
+
+    }
+
+    &__price-one{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+
+    }
+    &__price-two{
+        font-size: 6rem;
+        font-weight: 100;
+
+    }
+}

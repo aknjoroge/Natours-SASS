@@ -1,0 +1,86 @@
+.story{
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($shadow_color, .1);
+    background-color: rgba($color_white,.6);
+    border-radius: 3px;
+    padding: 7rem;
+    font-size: $default-font-size;
+
+    transform: skewx(-12deg);
+    & > *{
+        transform: skewx(12deg);
+    }
+    &__shape{
+        position: relative;
+        width: 16rem;
+        height: 16rem;
+        float: left;
+       
+       
+        /*shape outside is used for enabling content to float arrount an element*/
+        //circle(radius_of circle) 
+        //if width is 15rem then circle 50% is radius 7.5rem and diameter 15
+        
+        /*for shape outside to work float must be enabled and the element must have defined dimensions 
+        ie height, width
+        */
+        shape-outside: circle(50%);
+        //webkit to help work in safari
+        -webkit-shape-outside: circle(50%);
+
+        //creating a circle using clippath
+        clip-path:circle(50%); 
+        -webkit-clip-path:circle(50%); 
+
+        //when working with floats dont use margin / padding they may cause errors
+        transform: translateX(-3rem) skewx(12deg);
+        
+        /*THE CIRCLE CLIP PATH DOES NOT  WORK IN MY SYSTEM SO I USE border-radius*/
+        border-radius: 100px;
+
+       
+
+    }
+    &__img{
+        height: 100%;
+        transform: scale(1.4);
+        transition: all .5s;
+        // transform: ranslateX(-4rem); used to centre image but for my image it is not needed
+        // backface-visibility: hidden; // fix the tranlate glitch
+
+        &-2{
+            height: 70%;
+            transform: scale(1.4);
+
+        }
+    }
+    &__caption{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color_white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1.7rem;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden; //prevents shaking of element while animating
+    }
+
+    //the hover animation rises up the caption and sets it to be visible
+    //hover is set to the story but change we need is on the caption thus we nest caption
+    //element inside the story hover is :hover &caption
+    &:hover &__caption{
+        opacity: 1;
+        transform: translate(-50%,-40%);
+    }
+    &:hover &__img{
+       transform: scale(1);//zooming out
+       //using filter
+        filter: blur(3px) brightness(80%); //used to add blur to image
+    }
+
+
+}

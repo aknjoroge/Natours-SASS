@@ -1,0 +1,257 @@
+/* NOTICE !!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/* THIS WAS THE ORIGINAL CSS FILE, IT IS NO LONGER IN-USE SINCE
+WE CHANGED TO SASS PREPROCESSOR USE MAIN.SCSS / MAIN.CSS GENERATED
+*/
+
+
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* (*) universal selector to format the page*/
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    /*makes element inherit box-size property from body*/
+   box-sizing: inherit;
+
+}
+/*html is used as root element*/
+html{
+    /*The root font size is used in the calculation of rem measurements*/
+    /*100% is used so as to scale site to user defined font size setting   will disable user from 
+    changing the font as required*/
+    /*the default font size is 16 thus if we need 10px we devide 10/16*/
+    font-size: 62%;
+}
+body{
+    /*fonts are inherited - all childs of the body get the font*/
+    font-family: "lato",sans-serif; /*lato is declared in html from the google fonts Lato:100,300,400,700,900*/
+    /*100,300,400,700,900 are the font weights*/
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7; /* is 1.7 times bigger than the normal size*/
+    color: #777;
+    padding: 3rem;
+
+    box-sizing: border-box; /* border-box:Makes borders and paddings not to be add to total with and total height of 
+    the element*/
+
+} 
+
+.header{
+    height: 95vh; /*sets the height 95% */
+    background-position: top;/* the top of the background sticks to the top of the page and doesnt crop as the bottom part does*/
+    background-size: cover; /* sets image to cover the total view pork*/
+  /*Liner gradient is also added in background img so is image already exist separate with a(,) 
+  between url and linear as shown  - to right specifies the direction of the gradient ex to bottom to left, to right
+  bottom makes a diagonal shape direction */
+
+  /*color rgbh (111 =A , 55% =B , 64% =C , 0.801 = THE OPACITY),*/
+
+  /* background-image: linear-gradient(to right bottom,hsla(111, 55%, 64%, 0.767),
+  hsla(160, 64%, 43%, 0.733)),
+  url(../img/wallomp.png); */
+
+    background-image: linear-gradient(to right bottom,hsla(208, 100%, 29%, 0.767),
+    hsla(234, 100%, 8%, 0.767)),
+    url(../img/wallomp.png);
+    /* clip path is used to crop the image to a desired shape using polygon function the position are set using 
+    coordinates (x ,y ) . the coordinates start from top left and move clockwise*/
+   
+    /* clip-path: polygon(50% 0,100% 100%,0 100% ); - triangle challenge*/
+    clip-path: polygon(0 0,100% 0,100% 60vh,0 100% );
+    position: relative;
+
+    
+}
+.header__logo-box{
+    position: absolute;  /* the left and top distances are measured  RELATIVE to the parent element in this case
+    the header and thus the header should be set to position relative */
+    top: 4rem;
+    left: 4rem;
+}
+.header__logo{
+    height: 3rem; /*setting height only lets browser auto adjust the width*/
+}
+.header__logo:hover{
+  /*can call animation as general then describe its properties as shown below time,animation name and easy value in any order*/
+   animation:  forlogo 3s;
+}
+
+.header__text-box{
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    text-align: center;
+    /*top and left relative to the parent element*/
+    transform: translate(-50%,-50%); /*(x,y) relative of the element itself this will centre it*/
+    
+    backface-visibility: hidden;/* backspacevisibility is a fix for When annimations start to shake on end
+    its set on parent container*/
+
+}
+.heading--top{
+    
+    display: block;
+    font-size: 4rem;
+    font-family: 400;
+    letter-spacing: 2.5rem;
+
+/*To add  keyframe to elememt just add 1. keyframe name and animation-duration*/
+/*Other animation properties ex Animation iteration count that defines number of times keyframe will run (4).
+animation delay -delays :(3s) an animation in seconds, 
+*/
+animation-name: moveinleft ;
+animation-duration: 5s;
+
+
+}
+
+.heading--bottom{
+    display: block;
+    font-weight:400 ;
+    letter-spacing: 1.64rem;
+    font-size: 2rem;
+    animation-name: movefromright;
+    animation-duration: 5s;
+margin-bottom:6rem;
+    /*can combine the animation declarations to be one as
+     
+    animation:movefromright , 1s ,ease-in;
+
+    */
+}
+
+
+/*key frames are used for animations*/
+/*animate from left keyframe*/
+@keyframes moveinleft{
+    0%{
+        /*Translate X moves the element accross the X line -100 sets it out of view*/
+        /*for browser performance atleast have two animation properties*/
+transform: translateX(-100%);
+opacity: 0;
+    }
+    80%{
+transform: translateX(1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+        /*translate 0 sets document to defailt price*/
+
+    }
+}
+
+
+/*animate from right keyframe*/
+@keyframes movefromright{
+    0%{
+
+transform: translateX(100%);
+opacity: 0;
+    }
+    80%{
+transform: translateX(-1rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+        
+
+    }
+}
+
+@keyframes forlogo{
+    0%{
+        height: 3rem;
+            }
+    50%{
+        height: 4.5rem;
+    }
+
+    100%{
+        height: 3rem;
+    }
+}
+
+
+/*the :hover or :link is called pseudo clases they define an element state */
+.btn:link,.btn:visited{
+    padding: 1.5rem 2rem;
+    display: inline-block;
+   text-decoration: none;
+   /*padding can be one value for all sides or two values:one for top and bottom the next for right and left*/
+   /*shadow syntax is xpx,ypx,blur,color */
+border-radius: 20rem;
+transition: all .2s;
+  font-weight: 700;
+  font-size: 1.4rem;
+position: relative;
+animation: 3s btnservices ease-out .30s;
+/*animation fill mode applies style of element to start afer animation thus preventing element showing up before 
+animation starts
+*/
+animation-fill-mode: backwards;
+}
+
+.btn:hover{
+    /*3 is negative since css runs top to bottom thus using -3 raises it the y axis */
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgb(0, 0, 0,.2);
+}
+.btn:active{
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 2rem  rgb(0, 0, 0,.3);
+}
+.btn--white{
+    background-color: #fff;
+    color: #777;
+}
+/*after is an example of a pseudo element*/
+.btn::after{
+    content: "";
+    display: block;
+    border-radius: 10rem;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*z index is used to place the after pseudo element behind the main button*/
+    z-index: -1;
+    transition: all .4s;
+    /*.75 is animation delay*/
+    animation: 4s btnservices ease-out .35s;
+}
+.btn--white::after{
+    
+    background-color: #fff;
+}
+.btn:hover::after{
+    /*increases size of element by multiplying its size by the number*/
+    transform: scaleX(1.4) scaleY(1.4);
+    opacity: 0;
+}
+
+@keyframes btnservices{
+    0%{
+transform: translateY(40rem);
+opacity: 0;
+    }
+    100%{
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}

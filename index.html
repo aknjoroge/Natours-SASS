@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+       
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!--Renders website with the width of  the device-->
+
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+
+        <link rel="stylesheet" href="css & sass/icon-font.css">
+        <link rel="stylesheet" href="css & sass/main.css">
+        <!--LOGO IN TITLE-->
+        <link rel="shortcut icon" type="image/png" href="img/techkey.png">
+        
+        <title>Techkey | A Haven For Technology</title>
+    </head>
+    <body>
+<!--navigation bar-->
+<div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">
+            &nbsp;
+    </span>
+</label>
+    <div class="navigation__background" id="nav_bg_component">
+        &nbsp;
+    </div>
+    <nav class="navigation__nav" id="nav_list_component">
+        <ul class="navigation__list">
+            <li class="navigation__item">
+
+                <a id="nav-about-btn" onclick="nav_close()" href="#about" class="navigation__link"><span>01</span> About</a><!--the span is simply for numbering-->
+            </li>
+            <li class="navigation__item">
+                <a onclick="nav_close()" href="#contact" class="navigation__link"><span>02</span>Contact</a>
+            </li>
+            <li class="navigation__item">
+                <a onclick="nav_close()" href="#service" class="navigation__link"><span>03</span>Service</a>
+            </li>
+            <li class="navigation__item">
+                <a onclick="nav_close()" href="#work" class="navigation__link"><span>04</span>Work</a>
+            </li>
+
+        </ul>
+    </nav>
+</div>
+
+
+<!--header with name class--> 
+<!--The class naming scheme used is BEM ( block element modifier)-->
+        <header class="header" >  
+<div class="header__logo-box">
+<img src="img/whiteplain.png" alt="logo" class="header__logo">
+</div>
+<div class="header__text-box">
+<h1 class="heading-main">  <!--two spans are used inorder to control the different sizes-->
+    <span class="heading--top">TECHKEY</span>
+    <span class="heading--bottom">A HAVEN FOR TECHNOLOGY</span>
+   
+</h1>
+<a href="#" class="btn btn--white">view services</a>
+</div>
+        </header>
+        
+        <!--main tells browser where main part starts-->
+        <main>
+                <section class="section-about">
+                    <!--the utility is used to centre the text -->
+                    <div class="utility-center-text utility-margin-bottom-large">
+                        <h2 class="heading-secondary" id="about">A Haven For Technology</h2>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-1-of-2">
+                            <div class="utility-margin-bottom-small">
+                            <h3 class="heading-tertiary about-heading"> <!--responsive in typography file -->
+                                About techkey
+                            </h3>
+                        </div>
+                            <p class="paragraph">
+                                Auctor iaculis taciti. Dis leo phasellus amet ut habitasse dolor rhoncus netus mus. Sem vivamus scelerisque primis imperdiet facilisis magna class semper.
+ Urna odio ultrices primis Auctor iaculis taciti. Dis leo phasellus amet ut habitasse dolor rhoncus netus mus. Sem vivamus scelerisque primis imperdiet facilisis magna class semper.
+ Urna odio ultrices primis 
+                            </p>
+
+                            <div class="utility-margin-bottom-small">
+                            <h3 class="heading-tertiary">
+                                more about
+                            </h3>
+                        </div>
+                            <p class="paragraph">
+                               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam qui dignissimos non recusandae incidunt, consequatur beatae nobis consectetur atque maxime enim molestias eum placeat magnam officia unde odio, inventore optio!
+                            </p>
+                            <!--&rarr is the -> arrow -->
+                            <a href="" class="btn-text">More info &rarr;</a>
+                        </div>
+
+                        <div class="col-1-of-2">
+
+                           <div class="composition img__composition" >                                 
+                               <img src="img/nat-1-large.jpg" alt="nat1" class="composition__photo composition__photo--p1"/>
+                               <img src="img/nat-2-large.jpg" alt="nat2" class="composition__photo composition__photo--p2"/>
+                               <img src="img/nat-3-large.jpg" alt="nat3" class="composition__photo composition__photo--p3"/>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="feature-section" id="work">
+
+                   <div class="row">
+                       <div class="col-1-of-4">
+                           <div class="feature-box">
+                            <i class="feature-box__icon icon-basic-world"></i>
+                            <h3 class="heading--tertiary utility-margin-bottom-small">one</h3>
+                            <p class="feature-box__text">
+                                Lorem ipsumCum lres optionam non sequi omnis repellat itaque!
+                            </p>
+                           </div>
+                       </div>
+
+                       <div class="col-1-of-4">
+                        <div class="feature-box">
+                         <i class="feature-box__icon icon-basic-share"></i>
+                         <h3 class="heading--tertiary utility-margin-bottom-small">Two</h3>
+                         <p class="feature-box__text">
+                             Lorem ipsumCum lres optionam non sequi omnis repellat itaque!
+                         </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                         <i class="feature-box__icon icon-basic-signs"></i>
+                         <h3 class="heading--tertiary utility-margin-bottom-small">Three</h3>
+                         <p class="feature-box__text">
+                             Lorem ipsumCum lres optionam non sequi omnis repellat itaque!
+                         </p>
+                        </div>
+                    </div>
+
+                    <div class="col-1-of-4">
+                        <div class="feature-box">
+                         <i class="feature-box__icon icon-basic-todo"></i>
+                         <h3 class="heading--tertiary utility-margin-bottom-small">four</h3>
+                         <p class="feature-box__text">
+                             Lorem ipsumCum lres optionam non sequi omnis repellat itaque!
+                         </p>
+                        </div>
+                    </div>
+
+                   </div>
+                </section>
+                
+                <section class="section-tours" id="section-tours">
+                    
+                    <div class="utility-center-text utility-margin-bottom-large">
+                        <h2 class="heading-secondary" id="service">SERVICES</h2>
+                        
+                    </div>
+
+                    <div class="row">
+<!--card one-->
+                        <div class="col-1-of-3">
+                           <div class="card">
+                               <div class="card__slide card__slide--front">
+                                <div class="card__picture card__picture--1">
+                                    &nbsp; <!--creates an empty space-->
+                                   </div>
+                                   <h4 class="card__heading">
+                                       <span class="card__heading-span card__heading-span--1"> <!--span is used to box the text-->
+                                        heading 
+                                       </span>
+                                  
+                                   </h4>
+                                  
+                                   <div class="card__details">
+                                    <ul>
+                                        <li>one</li>
+                                        <li>two</li>
+                                        <li>three</li>
+                                        <li>four</li>
+                                        <li>five</li>
+                                    </ul>
+
+                                   </div>
+                               </div>
+                               <div class="card__slide card__slide--back card__slide--back-1">
+                              <div class="card__cta">
+                                  <div class="card__price-box">
+                                      <p class="card__price-one">
+                                       only
+                                      </p>
+                                      <p class="card__price-two">
+                                        $200/=
+                                      </p>
+                                  </div>
+                                  <a href="#popup" class="btn btn--white">book now</a>
+                              </div>
+                            </div>
+                           </div>
+                        </div>
+ <!--card two-->
+                        <div class="col-1-of-3">
+                           <div class="card">
+                            <div class="card__slide card__slide--front">
+                                <div class="card__picture card__picture--2">
+                                    &nbsp; <!--creates an empty space-->
+                                   </div>
+                                   <h4 class="card__heading">
+                                       <span class="card__heading-span card__heading-span--2"> <!--span is used to box the text-->
+                                        heading two
+                                       </span>
+                                  
+                                   </h4>
+                                  
+                                   <div class="card__details">
+                                    <ul>
+                                        <li>one</li>
+                                        <li>two</li>
+                                        <li>three</li>
+                                        <li>four</li>
+                                        <li>five</li>
+                                    </ul>
+
+                                   </div>
+                               </div>
+                               <div class="card__slide card__slide--back card__slide--back-2">
+                              <div class="card__cta">
+                                  <div class="card__price-box">
+                                      <p class="card__price-one">
+                                       only
+                                      </p>
+                                      <p class="card__price-two">
+                                        $400/=
+                                      </p>
+                                  </div>
+                                  <a href="#popup" class="btn btn--white">book now</a>
+                              </div>
+                            </div>
+
+                           </div>
+                        </div>
+
+ <!--card three-->
+                        <div class="col-1-of-3" >
+
+                           <div class="card col-1-of-3-last-child">
+
+                            <div class="card__slide card__slide--front">
+                                <div class="card__picture card__picture--3">
+                                    &nbsp; <!--creates an empty space-->
+                                   </div>
+                                   <h4 class="card__heading">
+                                       <span class="card__heading-span card__heading-span--3"> <!--span is used to box the text-->
+                                        heading three
+                                       </span>
+                                  
+                                   </h4>
+                                  
+                                   <div class="card__details">
+                                    <ul>
+                                        <li>one</li>
+                                        <li>two</li>
+                                        <li>three</li>
+                                        <li>four</li>
+                                        <li>five</li>
+                                    </ul>
+
+                                   </div>
+                               </div>
+                               <div class="card__slide card__slide--back card__slide--back-3">
+                              <div class="card__cta">
+                                  <div class="card__price-box">
+                                      <p class="card__price-one">
+                                       only
+                                      </p>
+                                      <p class="card__price-two">
+                                        $800/=
+                                      </p>
+                                  </div>
+                                  <a href="#popup" class="btn btn--white">book now</a>
+                              </div>
+                            </div>
+
+                           </div>
+                        </div>
+                       
+                    </div>
+
+                    <div class="utility-center-text utility-margin-top-large">
+                        <a class="btn btn--green btn--tours" href="#">discover more</a>
+                    </div>
+                    
+                </section>
+
+                <section class="section-stories">
+                    <div class="bg-video">
+                        <video  class="bg-video__content" autoplay muted loop>
+                            <!--we dont use the src attribute in this video we optionall create a source element-->
+                            <!--using source helps us use two or more video source of different types as show below-->
+                            <!--image from coverr.co-->
+                            <!--both format help to assure video will run-->
+                            <source src="img/video.mp4" type="video/mp4">
+                            <source src="img/video.webm" type="video/webm">
+                            <!--the text will be displayed on a not supported browser-->
+                            Your browser is not supported
+                        </video>
+                       
+                    </div>
+
+                    <div class="utility-center-text utility-margin-bottom-large">
+                        <h2 class="heading-secondary">STORIES ABOUT US</h2>
+                    </div>
+                    <div class="row">
+                        <div class="story">
+                            <!--we use figure so as to have the image caption on hover-->
+                            <figure class="story__shape">
+                                <img class="story__img" src="img/alex.png" alt="ceo">
+                                <figcaption class="story__caption">
+                                    Alexander aQ
+                                </figcaption>
+                            </figure>
+                            <div class="story__text">
+                                <h3 class="utility-margin-botom-small heading-tertiary">
+                                    best web experience
+                                </h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At officia
+                                    psum dolor sit amet consectetur adipisicing elit. At officia corrupti vel doloribus quam molestias veniam, magnam eum sunt sit? At, ea a. Praesentium laborum perspiinctio eveniet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="story">
+                            <!--we use figure so as to have the image caption on hover-->
+                            <figure class="story__shape">
+                                <img class="story__img story__img-2" src="img/techkey.png" alt="logo">
+                                <figcaption class="story__caption">
+                                   Techkey
+                                </figcaption>
+                            </figure>
+                            <div class="story__text">
+                                <h3 class="utility-margin-botom-small heading-tertiary">
+                                    best web experience
+                                </h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At officia
+                                    psum dolor sit amet consectetur adipisicing elit. At officia corrupti vel doloribus quam molestias veniam, magnam eum sunt sit? At, ea a. Praesentium laborum perspiinctio eveniet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="utility-center-text utility-margin-top-large">
+                        <a class="btn-text" href="#">Read all</a>
+                    </div>
+
+                </section>
+
+                <section class="section-book" id="contact">
+                    <div class="row">
+                        <div class="book">
+                            <div class="book__form">
+                                <form action="#" class="form">
+                                    <div class=" utility-margin-bottom-small">
+                                        <h2 class="heading-secondary">SUBSCRIBE TO US</h2>
+                                    </div>
+                                    <div class="form__group">
+                                        <input type="text" class="form__input" placeholder="Full Name" required id="name">
+                                        <!--the input id is used to link to the label if label is clicked focus is sent to the input field-->
+                                        <label for="name" class="form__label">Full Name</label> 
+                                    </div>
+
+                                    <div class="form__group">
+                                        <input type="email" class="form__input" placeholder="Email address" required id="name">
+                                        <!--the input id is used to link to the label. if label is clicked focus is sent to the input field-->
+                                        <label for="name" class="form__label">Email address</label> 
+                                    </div>
+                                    <div class="form__group">
+                                        <div class="form__radio-group">
+                                            <!--we hide the input fields radio and use the span inside the label as our radio buttons-->
+                                            <!--the radio buttons will be selected since they are connected with the lables -->
+                                            <input type="radio" class="form__radio-input" id="small" name="price"> <!--giving the same name to
+                                            different input fields makes sure only one is selected at a time-->
+                                            <label for="small" class="form__radio-label">
+                                                <!--we create our own radio buttons for us to style,since the default ones cannot be styled
+                                                ,also done for check boxes-->
+                                                <span class="form__radio-button">  </span>
+                                                cheap
+                                            </label>
+                                        </div>
+                                        <div class="form__radio-group">
+                                            <input type="radio" class="form__radio-input" id="large" name="price">
+                                            <label for="large" class="form__radio-label">
+                                                <span class="form__radio-button">  </span>
+                                                expensive</label>
+                                        </div>
+                                    </div>
+                                    
+                                     <!--we cant use <a> since we need a button to submit the form-->
+
+                                    <div class="form__group">
+                                        <button class="btn btn--next">
+                                            next step &rarr;
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+           
+        </main>
+
+        <footer class="footer">
+          <div class="footer__logo-box">
+              <img src="img/techkey.png" alt="logo" class="footer__logo">
+          </div>
+          <!-- .row>col-1-of-2*2 creating two div inside class row -->
+          <div class="row">
+              <div class="col-1-of-2">
+                  <div class="footer__navigation">
+                      <ul class="footer__list">
+                          <li class="footer__item"><a href="#" class="footer__link">company</a></li>
+                          <li class="footer__item"><a href="#" class="footer__link">about us</a></li>
+                          <li class="footer__item"><a href="#" class="footer__link">home</a></li>
+                          <li class="footer__item"><a href="#" class="footer__link">contact</a></li>
+                          <li class="footer__item"><a href="#" class="footer__link">terms</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-1-of-2 col-1-of-2-footer-extention">
+                  <p class="footer__copyright">
+                      built by <a href="#" class="footer__link">&copyTechkey</a>  collaboration with 
+                      <a href="#" class="footer__link">aQ</a>
+                  </p>
+              </div>
+          </div>
+        </footer>
+
+        <div class="popup" id="popup">
+            <div class="popup__content">
+               <div class="popup__left">
+                   <img src="img/nat-5.jpg" alt="imageone" class="popup__img">
+                   <img src="img/nat-6.jpg" alt="imagetwo"  class="popup__img">
+               </div>
+               <div class="popup__right">
+                   <a href="#section-tours" class="popup__close">&times;</a> <!--since we use target in css to open the pop up to close it we remove target from it-->
+                <h2 class="heading-secondary utility-margin-bottom-medium">get our SERVICES</h2>
+                <h3 class="heading-tertiary utility-margin-bottom-small">Important &ndash; please read terms and conditions</h3>
+                <p class="popup__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eum similique hic ipsum. Ea iure, sed deserunt doloribus, aliquid nesciunt ex praesentium quia quibusdam obcaecati eius recusandae maxime illo ipsam.
+                    Lorem ipsum dolor sit amet consectolore suscipit eveniet? Saepe, eum nulla?
+                    
+                </p>
+                <a href="#" class="btn btn--green btn-register">register</a>
+               </div>
+            </div>
+        </div>
+
+    </body>
+    <script src="nav.js"></script>
+</html>
