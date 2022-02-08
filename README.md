@@ -14,5 +14,5 @@
 #### [jonas schmedtmann](https://github.com/jonasschmedtmann)
 
  <a href="#">
-    <img src="https://github.com/aknjoroge/" alt="Logo" width="1366" height="615">
+    <img src="https://github.com/aknjoroge/Natours-SASS/blob/master/img/view.png" alt="Logo" width="1366" height="615">
   </a>
